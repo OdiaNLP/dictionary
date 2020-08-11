@@ -1,0 +1,5 @@
+aiofiles==0.4.0
+aiohttp==3.6.2
+bs4==0.0.1
+opnieuw==1.1.0
+requests==2.24.0
