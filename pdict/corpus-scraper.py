@@ -1,5 +1,7 @@
 """
 Author: Soumendra Kumar Sahoo
+Start date: 11th August 2020
+This module downloads the website contents from https://dsal.uchicago.edu page
 Missing Pages:
 1-100
 1300-1400
@@ -7,17 +9,17 @@ Missing Pages:
 3301-3401
 3701-3801
 3901-4001
-5001
-5101
-5501
-5901
-7201
-7401
-7501
-7601
-7701
-8201
-8401
+5001-5101
+5401-5501
+5801-5901
+7101-7201
+7301-7401
+7401-7501
+7501-7601
+7601-7701
+8101-8201
+8301-8401
+
 """
 import asyncio
 import pickle
@@ -83,14 +85,15 @@ user_agents_list = [
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36"
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36",
 ]
 
 
 @retry_async(
     retry_on_exceptions=ClientPayloadError,
     max_calls_total=5,
-    retry_window_after_first_call_in_seconds=5)
+    retry_window_after_first_call_in_seconds=5,
+)
 async def fetch(client, page_number):
     delays = [2, 5, 1, 7, 4, 9]
     delay = random.choice(delays)
@@ -123,7 +126,7 @@ async def dump_extracted_content(page_number):
 
 
 def write_extracted_content(final_text, filename):
-    with open(filename, 'wb') as fh:
+    with open(filename, "wb") as fh:
         pickle.dump(final_text, fh)
     print(f"Written to the file: {filename}")
 
@@ -133,8 +136,12 @@ async def main():
     for chunk in range(1, 9249, 100):
         try:
             print(f"retrieving for {chunk} to {chunk+100} size.")
-            temp_text = await asyncio.gather(*(dump_extracted_content(page_number)
-                                               for page_number in tqdm(range(chunk, chunk + 100))))
+            temp_text = await asyncio.gather(
+                *(
+                    dump_extracted_content(page_number)
+                    for page_number in tqdm(range(chunk, chunk + 100))
+                )
+            )
             write_extracted_content(final_text, f"intermediate_dump_{chunk+100}.txt")
             print("Block sleeping for 3 minutes")
             sleep(180)
@@ -146,5 +153,5 @@ async def main():
         write_extracted_content(final_text, "full_dump.txt")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())
