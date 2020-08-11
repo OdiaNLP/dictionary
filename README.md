@@ -9,6 +9,15 @@
 - [ ] Exposes an API for further development by interested 
 
 ## Setup
+Will be added soon...
+## Usage
+After installing and running the project
+1. Go to http://127.0.0.1:8000/
+2. Type in the word you want to search and click on `Submit` button.  
+![Search screen](docs/search.png)
+3. You will be able to see the result if the word is present else, mismatch message will come.   
+![Result screen](docs/result.png)
+
 
 ## Major contributor(s)
 - [Soumendra Kumar Sahoo](https://www.linkedin.com/in/soumendrakumarsahoo/)
