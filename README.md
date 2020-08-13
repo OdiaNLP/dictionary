@@ -2,7 +2,7 @@
 <p align="center">
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 <a href="https://img.shields.io/badge/Python-3.8-blue"><img alt="Python 3.8" src="https://img.shields.io/badge/Python-3.8-blue"></a>
-<a href="https://github.com/OdiaNLP/dictionary#contributors-"><img alt="All Contributors" src="https://img.shields.io/github/all-contributors/odianlp/dictionary?style=flat-square"></a>
+<a href="#contributors-"><img alt="All Contributors" src="https://img.shields.io/github/all-contributors/odianlp/dictionary?style=flat-square"></a>
 </p>
 This project scrapes data from https://dsal.uchicago.edu/dictionaries/praharaj/  
 
