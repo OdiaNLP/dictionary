@@ -1,4 +1,7 @@
 <h2 align="center">Odia Dictionary</h2>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p align="center">
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 <a href="https://img.shields.io/badge/Python-3.8-blue"><img alt="Python 3.8" src="https://img.shields.io/badge/Python-3.8-blue"></a>
@@ -26,3 +29,22 @@ After installing and running the project
 
 ## License
 MIT License 
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/soumendrakumarsahoo/"><img src="https://avatars3.githubusercontent.com/u/10120538?v=4" width="100px;" alt=""/><br /><sub><b>Soumendra kumar sahoo</b></sub></a><br /><a href="https://github.com/OdiaNLP/dictionary/commits?author=soumendrak" title="Code">💻</a> <a href="#content-soumendrak" title="Content">🖋</a> <a href="#design-soumendrak" title="Design">🎨</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
