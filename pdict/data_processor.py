@@ -42,7 +42,7 @@ for i, each_page in enumerate(content_list, 1):
             word_list.append(word_details)
         final_word_dict[word]["word_details"] = word_list
 
-with open("./data/structured_wordlist.json", "w+") as sw:
+with open("./data/Odia_structured_wordlist.json", "w+") as sw:
     json.dump(final_word_dict, sw, ensure_ascii=False, sort_keys=True, indent=2)
 print(len(final_word_dict))
 print("Dictionary size: ", getsizeof(json.dumps(final_word_dict)))
