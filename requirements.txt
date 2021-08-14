@@ -3,6 +3,8 @@ aiohttp==3.7.4
 black==19.10b0
 bs4==0.0.1
 fastapi==0.65.2
+googletrans==4.0.0rc1
+nltk==3.6.2
 opnieuw==1.1.0
 python-multipart==0.0.5
 requests==2.24.0
