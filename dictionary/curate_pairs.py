@@ -22,3 +22,10 @@ json_object = json.dumps(output_json, indent=4, ensure_ascii=False)
 # Writing to sample.json
 with open("./data/cleaned_pairs.json", "w") as wfh:
     wfh.write(json_object)
+
+# with open("./data/Odia_structured_wordlist.json", "r+") as fh:
+#     all_words = json.load(fh)
+#     for all_word in all_words:
+#         del all_words[all_word]['raw']
+#     all_words = json.dumps(all_words, indent=4, ensure_ascii=False)
+#     fh.write(all_words)
