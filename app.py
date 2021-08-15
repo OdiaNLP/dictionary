@@ -41,14 +41,14 @@ async def search(text_field: str = Form(...)):
             }
         else:
             meaning = {}
-            # breakpoint()
             for words in en_or_dict.keys():
                 if set([en_text]).intersection(set(words.split())):
-                    meaning[words] = en_or_dict[words]
+                    meaning[words] = en_or_dict[words] + "<br>"
             if meaning:
                 translation = {
+                    "message": f"Direct translation not found for <b>{text_field}</b>. Here are few similar words: <br>",
                     "english-text": text_field,
-                    "odia-text": meaning
+                    "odia-text": f"<br> {meaning}"
                 }
             else:
                 translation = {
