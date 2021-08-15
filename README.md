@@ -9,21 +9,33 @@ This project scrapes data from https://dsal.uchicago.edu/dictionaries/praharaj/
 - [x] This project scrapes the dictionary corpus data from Purnachandra Bhashakosha  
 - [ ] Prepares the mapping between different languages
 - [ ] Saves the words
-- [ ] Exposes an API for further development by interested 
+- [ ] Exposes an API for further development by interested
+
 ## Dataset
-Scraped Dataset with 1,21,658 words and their meanings can be found on [Kaggle](https://www.kaggle.com/soumendrak/odia-structured-dictionary) 
+
+Scraped Dataset with 1,21,658 words and their meanings can be found on [Kaggle](https://www.kaggle.com/soumendrak/odia-structured-dictionary)
+
 ## Setup
-Will be added soon...
+
+``` bash
+pip install -r requirements.txt
+uvicorn app:app --reload
+
+```
+
 ## Usage
+
 After installing and running the project
-1. Go to http://127.0.0.1:8000/
+
+1. Go to <http://127.0.0.1:8000/>
 2. Type in the word you want to search and click on `Submit` button.  
 ![Search screen](docs/search.png)
-3. You will be able to see the result if the word is present else, mismatch message will come.   
+3. You will be able to see the result if the word is present else, mismatch message will come.
 ![Result screen](docs/result.png)
 
 ## License
-MIT License 
+
+MIT License
 
 ## Contributors ✨
 

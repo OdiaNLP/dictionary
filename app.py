@@ -8,26 +8,26 @@ from nltk.stem import WordNetLemmatizer
 
 
 app = FastAPI()
-# with open("./data/Odia_structured_wordlist.json", "r") as fh:
-#     word_dict = json.load(fh)
+with open("./data/Odia_structured_wordlist.json", "r") as fh:
+    word_dict = json.load(fh)
 
 with open("./data/cleaned_pairs.json") as translated_handler:
     en_or_dict = json.load(translated_handler)
 
 @app.post("/translate/")
 async def search(text_field: str = Form(...)):
+    text_field = text_field.lower()
     if check_odia_text(text_field):
         # # Odia input text asked
-        # if text_field in word_dict:
-        #     translation = {
-        #         "odia_text": text_field,
-        #         "meaning": word_dict[text_field]["word_details"]
-        #     }
-        # else:
-        #     translation = {
-        #         "ବାର୍ତ୍ତା": f"କ୍ଷମା କରିବେ । '<b>{text_field}</b>' ଶବ୍ଦଟିର ଅର୍ଥ ଯୋଗାଇବାକୁ ମୁଁ ଅସମର୍ଥ ।"
-        #     }
-        pass
+        if text_field in word_dict:
+            translation = {
+                "odia_text": text_field,
+                "meaning": word_dict[text_field]["word_details"]
+            }
+        else:
+            translation = {
+                "ବାର୍ତ୍ତା": f"କ୍ଷମା କରିବେ । '<b>{text_field}</b>' ଶବ୍ଦଟିର ଅର୍ଥ ଯୋଗାଇବାକୁ ମୁଁ ଅସମର୍ଥ ।"
+            }
     else:
         # English input text processor
         lemmatizer = WordNetLemmatizer()
@@ -42,6 +42,9 @@ async def search(text_field: str = Form(...)):
         else:
             meaning = {}
             for words in en_or_dict.keys():
+                if len(words.split()) < 2:
+                    # if no phrases found then no need to go further
+                    continue
                 if set([en_text]).intersection(set(words.split())):
                     meaning[words] = en_or_dict[words] + "<br>"
             if meaning:
