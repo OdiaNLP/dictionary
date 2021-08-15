@@ -13,7 +13,6 @@ with open("./data/Odia_structured_wordlist.json", "r") as fh:
 
 with open("./data/cleaned_pairs.json") as translated_handler:
     en_or_dict = json.load(translated_handler)
-sorted_en_words = sorted(en_or_dict.keys())
 
 @app.post("/translate/")
 async def search(text_field: str = Form(...)):
@@ -42,9 +41,8 @@ async def search(text_field: str = Form(...)):
         else:
             meaning = {}
             # breakpoint()
-            for words in sorted_en_words:
-                search_words = words.split()
-                if en_text in search_words:
+            for words in en_or_dict.keys():
+                if set([en_text]).intersection(set(words.split())):
                     meaning[words] = en_or_dict[words]
             if meaning:
                 translation = {
@@ -56,6 +54,7 @@ async def search(text_field: str = Form(...)):
                     "message": f"I am sorry. Unable to find the Odia of the word: <b>'{text_field}'</b>"
                 }
     translation_content = json.dumps(translation, ensure_ascii=False, indent=4)
+    print(translation_content)
     content = """
             <body>
             <form action="/translate/" enctype="multipart/form-data" method="post">
