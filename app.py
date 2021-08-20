@@ -8,8 +8,8 @@ from nltk.stem import WordNetLemmatizer
 
 
 app = FastAPI()
-with open("./data/Odia_structured_wordlist.json", "r") as fh:
-    word_dict = json.load(fh)
+# with open("./data/Odia_structured_wordlist.json", "r") as fh:
+#     word_dict = json.load(fh)
 
 with open("./data/cleaned_pairs.json") as translated_handler:
     en_or_dict = json.load(translated_handler)
@@ -19,15 +19,15 @@ async def search(text_field: str = Form(...)):
     text_field = text_field.lower()
     if check_odia_text(text_field):
         # # Odia input text asked
-        if text_field in word_dict:
-            translation = {
-                "odia_text": text_field,
-                "meaning": word_dict[text_field]["word_details"]
-            }
-        else:
-            translation = {
-                "ବାର୍ତ୍ତା": f"କ୍ଷମା କରିବେ । '<b>{text_field}</b>' ଶବ୍ଦଟିର ଅର୍ଥ ଯୋଗାଇବାକୁ ମୁଁ ଅସମର୍ଥ ।"
-            }
+        # if text_field in word_dict:
+        #     translation = {
+        #         "odia_text": text_field,
+        #         "meaning": word_dict[text_field]["word_details"]
+        #     }
+        # else:
+        translation = {
+            "ବାର୍ତ୍ତା": f"କ୍ଷମା କରିବେ । '<b>{text_field}</b>' ଶବ୍ଦଟିର ଅର୍ଥ ଯୋଗାଇବାକୁ ମୁଁ ଅସମର୍ଥ ।"
+        }
     else:
         # English input text processor
         lemmatizer = WordNetLemmatizer()
