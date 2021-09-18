@@ -13,7 +13,8 @@ This project scrapes data from https://dsal.uchicago.edu/dictionaries/praharaj/
 
 ## Dataset
 
-Scraped Dataset with 1,21,658 words and their meanings can be found on [Kaggle](https://www.kaggle.com/soumendrak/odia-structured-dictionary)
+- Scraped Dataset with 1,21,658 words and their meanings can be found on [Kaggle](https://www.kaggle.com/soumendrak/odia-structured-dictionary)
+- Prepared 2 lakhs plus English and Odia parallel word/phrases pairs. 
 
 ## Setup
 
