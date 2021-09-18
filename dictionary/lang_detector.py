@@ -33,4 +33,4 @@ ODIA_MATRA = {
 
 def check_odia_text(text):
     """ Odia language detector """
-    return True if any(matra in text for matra in ODIA_MATRA) else False
+    return bool(any(matra in text for matra in ODIA_MATRA))
