@@ -45,7 +45,7 @@ async def search(text_field: str = Form(...)):
                 if len(words.split()) < 2:
                     # if no phrases found then no need to go further
                     continue
-                if set([en_text]).intersection(set(words.split())):
+                if {en_text}.intersection(set(words.split())):
                     meaning[words] = en_or_dict[words] + "<br>"
             if meaning:
                 translation = {
