@@ -6,6 +6,7 @@ fastapi>=0.65.2
 googletrans>=4.0.0rc1
 gunicorn>=20.0.4
 nltk>=3.6.2
+openodia>=0.1.11
 opnieuw>=1.1.0
 python-multipart>=0.0.5
 requests>=2.24.0
